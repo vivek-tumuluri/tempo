@@ -1,0 +1,389 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
+@keyframes expand {
+  from { width: 0; }
+  to { width: 50px; }
+}
+
+/* Main Container */
+.signup-form-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Form Styling */
+.signup-form {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  padding: 50px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 0.8s ease-out 0.2s both;
+}
+
+.signup-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #9333EA, #7C3AED, #EC4899, #F59E0B);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Form Header */
+.form-header {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.form-header h1 {
+  color: #1F2937;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #9333EA, #7C3AED, #EC4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.8s ease-out 0.4s both;
+}
+
+.form-header p {
+  color: #6B7280;
+  font-size: 1.2rem;
+  font-weight: 400;
+  animation: fadeIn 0.8s ease-out 0.6s both;
+}
+
+.form-header::before {
+  content: '🎭';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  opacity: 0.1;
+  animation: fadeIn 0.8s ease-out 0.8s both;
+}
+
+/* Form Sections */
+.form-section {
+  margin-bottom: 50px;
+  animation: fadeIn 0.8s ease-out 0.8s both;
+}
+
+.form-section h2 {
+  color: #1F2937;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid;
+  border-image: linear-gradient(90deg, #9333EA, #7C3AED) 1;
+  position: relative;
+}
+
+.form-section h2::before {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #EC4899, #F59E0B);
+  animation: expand 0.8s ease-out 1s both;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 25px;
+  position: relative;
+  animation: fadeIn 0.8s ease-out 1.2s both;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #374151;
+  font-size: 1rem;
+  position: relative;
+}
+
+.form-group label::after {
+  content: ' *';
+  color: #EF4444;
+  font-weight: 700;
+}
+
+.form-group label:not([for*="performance_description"])::after {
+  content: ' *';
+  color: #EF4444;
+  font-weight: 700;
+}
+
+/* Input Styling */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid #E5E7EB;
+  border-radius: 15px;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.8);
+  color: #1F2937;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #9333EA;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 4px rgba(147, 51, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #9CA3AF;
+  font-style: italic;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+.form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.form-group select:focus {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239333EA' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+}
+
+/* Description Container */
+.description-container {
+  position: relative;
+}
+
+.generate-btn {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: linear-gradient(135deg, #9333EA, #7C3AED);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(147, 51, 234, 0.3);
+  z-index: 10;
+}
+
+.generate-btn:hover {
+  background: linear-gradient(135deg, #7C3AED, #EC4899);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(147, 51, 234, 0.4);
+}
+
+.generate-btn:active {
+  transform: translateY(0);
+}
+
+/* Submit Button */
+.form-actions {
+  text-align: center;
+  margin-top: 50px;
+  animation: fadeIn 0.8s ease-out 1.4s both;
+}
+
+.submit-button {
+  background: linear-gradient(135deg, #9333EA 0%, #7C3AED 50%, #EC4899 100%);
+  color: white;
+  border: none;
+  padding: 18px 40px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(147, 51, 234, 0.3);
+  min-width: 250px;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.submit-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+}
+
+.submit-button:hover::before {
+  left: 100%;
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(147, 51, 234, 0.4);
+}
+
+.submit-button:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Loading animation for submit button */
+.submit-button:disabled::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Cultural decorative elements */
+.form-section::before {
+  content: '🎪';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 1.5rem;
+  opacity: 0.1;
+  animation: fadeIn 0.8s ease-out 1s both;
+}
+
+.form-section:nth-child(2)::before {
+  content: '🎭';
+}
+
+.form-section:nth-child(3)::before {
+  content: '🎨';
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .signup-form-container {
+    padding: 10px;
+  }
+  
+  .signup-form {
+    padding: 30px;
+    border-radius: 20px;
+  }
+  
+  .form-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .form-header p {
+    font-size: 1.1rem;
+  }
+  
+  .form-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 1.1rem;
+  }
+  
+  .generate-btn {
+    position: static;
+    margin-top: 10px;
+    width: 100%;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-form {
+    padding: 20px;
+  }
+  
+  .form-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 14px 16px;
+    font-size: 0.95rem;
+  }
+  
+  .submit-button {
+    padding: 14px 20px;
+    font-size: 1rem;
+  }
+} 
